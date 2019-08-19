@@ -27,3 +27,25 @@ function check(input) {
             input.setCustomValidity('');
         }
     }
+
+function confirmEmail(input) {
+    var email = document.getElementById("email").value
+    var confemail = document.getElementById("confemail").value
+    if(email != confemail) {
+    	console.log("pw must be matchin");
+    	input.setCustomValidity('Email Must be Matching.');
+    }
+    else{
+    	console.log("its good");
+    	input.setCustomValidity('');
+    }
+}
+
+function checkEmail(){
+	if(document.getElementById('email').value != document.getElementById('emailtwo').value ){
+		input.setCustomValidity('Password Must be Matching.');
+	}
+	else{
+		input.setCustomValidity('');
+	}
+}
