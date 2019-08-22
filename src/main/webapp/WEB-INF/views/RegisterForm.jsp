@@ -12,7 +12,7 @@
 
 
 	<form action="submit-person" method="post">
-	<h1>person form</h1>
+++	<h1>person form</h1>
 	<table>
 	<thead>
 			<tr>
@@ -22,10 +22,10 @@
 		
 		</thead>
 	<tbody>
-	<tr><td>First Name: </td><td><input type="text" name="first"></td></tr>
+	<tr><td>First Name: </td><td><input type="text" name="firstName"></td></tr>
 	<br>
 	<br>
-	<tr><td>Last Name:</td><td> <input type="text" name="last"> </td></tr>
+	<tr><td>Last Name:</td><td> <input type="text" name="lastName"> </td></tr>
 	<br>
 	<br>
 	<tr><td>Email: </td><td><input type="email" name="email" id="email" placeholder="name@sample.com" ></td></tr>

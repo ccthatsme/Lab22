@@ -21,7 +21,7 @@
 
 
 function check(input) {
-        if (input.value != document.getElementById('passtwo').value) {
+        if (input.value !== document.getElementById('passone').value) {
             input.setCustomValidity('Password Must be Matching.');
         } else {
             input.setCustomValidity('');
@@ -31,7 +31,7 @@ function check(input) {
 function confirmEmail(input) {
     var email = document.getElementById("email").value
     var confemail = document.getElementById("confemail").value
-    if(email != confemail) {
+    if(email !== confemail) {
     	console.log("pw must be matchin");
     	input.setCustomValidity('Email Must be Matching.');
     }

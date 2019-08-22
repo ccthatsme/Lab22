@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Person {
 	
+	private Integer id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -24,6 +25,18 @@ public class Person {
 		this.email = email;
 		this.phoneNum = phoneNum;
 		this.pass = pass;
+		this.gender = gender;
+	}
+	
+	public Person(Integer id, String firstName, String lastName, String email, String phoneNum, String pass, String gender) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phoneNum = phoneNum;
+		this.pass = pass;
+		this.gender = gender;
 	}
 
 	public String getFirstName() {
@@ -72,6 +85,14 @@ public class Person {
 
 	public void setGender(String gender) {
 		this.pass = gender;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	@Override

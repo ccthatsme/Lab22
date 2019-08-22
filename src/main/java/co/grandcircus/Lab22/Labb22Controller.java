@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import co.grandcircus.Lab22.DAO.UserRegDao;
+
 /**
  * @author cciric
  *
@@ -18,8 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class Labb22Controller {
 
 	@Autowired
-
 	private Person personFromForm;
+	@Autowired
+	private UserRegDao dao;
 
 	@RequestMapping("/")
 	public ModelAndView home() {
@@ -37,10 +40,16 @@ public class Labb22Controller {
 	}
 
 	@RequestMapping("submit-person")
-	public ModelAndView register(@RequestParam("first") String firstName, @RequestParam("last") String lastName, @RequestParam("email") String email, @RequestParam("phoneNum") String phoneNum, @RequestParam("pass") String pass, @RequestParam("gender") String gender) {
+	public ModelAndView register( @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("email") String email, @RequestParam("phoneNum") String phoneNum, @RequestParam("pass") String pass, @RequestParam("gender") String gender) {
 		// personFromForm.setFirstName(fName);
 		personFromForm = new Person(firstName, lastName, email, phoneNum, pass, gender);
-		return new ModelAndView("submit-person", "personinfo", personFromForm);
+		dao.addPerson(firstName, lastName, email, phoneNum, pass, gender);
+		return new ModelAndView("submit-person", "personinfo", dao.findAllPerson());
+	}
+	
+	@RequestMapping("item-list")
+	public ModelAndView displayItem() {
+		return new ModelAndView("items", "itemtest", dao.getList());
 	}
 	
 	
